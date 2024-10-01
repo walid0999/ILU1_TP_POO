@@ -22,17 +22,21 @@ public class Romain {
 		}
 	
 	public void recevoirCoup(int forceCoup) {
-		force -= forceCoup; if (force > 0) { parler("Aïe");
+		assert force > 0 : "La force d'un Romain doit être positive";
+		int force_debut = force;
+		
+		force -= forceCoup;
+		if (force > 0) {
+			parler("Aïe");
 		} else {
 			parler("J'abandonne...");
 			}
+		assert force_debut > force : "La force d'un Romain  doit diminuer apres le coup";
 		}
+	
 	public static void main(String[] args) {
-		Romain romain = new Romain("Asterix", 8);
-		System.out.println(romain.prendreParole());
-		romain.parler("Bonjour");
-		romain.recevoirCoup(7);
-		
+		Romain romain = new Romain("Asterix", 6);
+		System.out.println(romain.force);
 	}
 	
 } 
